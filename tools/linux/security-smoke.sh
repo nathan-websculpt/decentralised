@@ -136,6 +136,8 @@ fi
 
 run_smoke_check 'Chain integrity smoke' "${SCRIPT_DIR}/chain-integrity-smoke.sh"
 
+run_smoke_check 'Local sync smoke' "${SCRIPT_DIR}/local-sync-smoke.sh"
+
 if [[ "$SKIP_SECRET" == "true" ]]; then
   printf '== Secret scan skipped ==\n'
 else

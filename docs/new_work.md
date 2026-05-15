@@ -1,16 +1,18 @@
 ## New Tests
 
-Run New Tests from Linux
+### Chain Integrity
+
+Test from Linux
 ```bash
 ./tools/linux/test.sh --test-filter chainIntegritySmoke
 ```
 
-Run New Tests from Windows
+Test from Windows
 ```powershell
 .\tools\windows\test.ps1 -TestFilter "chainIntegritySmoke"
 ```
 
-Run new script
+Run new linux script
 ```bash
 chmod +x tools/linux/chain-integrity-smoke.sh
 ./tools/linux/chain-integrity-smoke.sh
@@ -36,4 +38,46 @@ Rejects timestamps too far in the future.
 Rejects bad signatures.
 Rejects malformed hash/signature formats.
 Rejects unsupported actionType values and overlong actionLabel values.
+```
+
+### Local Sync
+
+Test from Linux
+
+```bash
+./tools/linux/test.sh --test-filter localSyncSmoke
+```
+
+Test from windows
+
+```powershell
+.\tools\windows\test.ps1 -TestFilter "localSyncSmoke"
+```
+
+Run Linux script
+
+```bash
+chmod +x tools/linux/local-sync-smoke.sh
+./tools/linux/local-sync-smoke.sh
+```
+
+Test the Aggregate Lane Without npm Audit
+
+```bash
+./tools/linux/security-smoke.sh --skip-audit
+```
+
+```text
+Simulates local peers with different chain states.
+Tests an empty peer syncing from lastIndex: -1.
+Tests a partially synced peer requesting only missing blocks after lastIndex: 0.
+Verifies request-sync and sync-response message behavior.
+Verifies peers converge to the same chain head after sync.
+Handles out-of-order sync-response blocks deterministically.
+Ensures duplicate blocks are not appended twice.
+Detects missing-history gaps and treats them as resync conditions.
+Detects same-index/different-hash fork conflicts.
+Rejects corrupt block material delivered through sync.
+Ignores malformed message payloads without crashing.
+Confirms invalid messages do not mutate local chain state.
 ```
