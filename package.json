@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:relay": "node relay-server.js",
+    "dev:relay": "node relay-server/relay-server-enhanced.js",
     "dev:gun": "node gun-relay-server/gun-relay.js",
     "dev:peer": "node peer.js",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node relay-server.js",
+    "start": "node relay-server/relay-server-enhanced.js",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "test": "vitest run --config unit_tests/vitest.config.ts",
     "test:watch": "vitest --config unit_tests/vitest.config.ts"
