@@ -10,6 +10,17 @@ Run New Tests from Windows
 .\tools\windows\test.ps1 -TestFilter "chainIntegritySmoke"
 ```
 
+Run new script
+```bash
+chmod +x tools/linux/chain-integrity-smoke.sh
+./tools/linux/chain-integrity-smoke.sh
+```
+
+Then test the aggregate lane without npm audit
+```bash
+./tools/linux/security-smoke.sh --skip-audit
+```
+
 ```text
 Accepts a valid signed genesis block.
 Accepts a valid signed append block.

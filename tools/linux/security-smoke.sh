@@ -134,6 +134,8 @@ else
   run_smoke_check 'Adversarial tests' "${SCRIPT_DIR}/adversarial-test.sh"
 fi
 
+run_smoke_check 'Chain integrity smoke' "${SCRIPT_DIR}/chain-integrity-smoke.sh"
+
 if [[ "$SKIP_SECRET" == "true" ]]; then
   printf '== Secret scan skipped ==\n'
 else
